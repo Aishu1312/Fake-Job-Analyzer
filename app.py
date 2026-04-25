@@ -32,6 +32,8 @@ def home():
             result = f"✅ Real Job (Confidence: {(1-prob)*100:.2f}%)"
 
     return render_template("index.html", result=result, risk=risk, reasons=reasons)
+import os
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
